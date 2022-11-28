@@ -1,0 +1,592 @@
+2022-11-15 23:19:51 - main.py - INFO - Training arguments: {'train_data': 'translate', 'no_pair': False, 'data_proportion': 1.0, 'do_upsampling': False, 'no_shuffle': False, 'seed': 1, 'model_name_or_path': './bert-base-uncased/', 'continue_training': False, 'model_save_path': './output/unsup-consert-base', 'tensorboard_log_dir': None, 'force_del': True, 'use_apex_amp': True, 'apex_amp_opt_level': 'O1', 'batch_size': 96, 'num_epochs': 30, 'learning_rate': 5e-07, 'evaluation_steps': 200, 'max_seq_length': 64, 'loss_rate_scheduler': 0, 'no_dropout': True, 'concatenation_sent_max_square': False, 'normal_loss_stop_grad': False, 'adv_training': False, 'adv_loss_rate': 1.0, 'noise_norm': 1.0, 'adv_loss_stop_grad': False, 'use_simsiam': False, 'use_simclr': False, 'add_cl': True, 'data_augmentation_strategy': 'translate', 'cutoff_direction': None, 'cutoff_rate': None, 'cl_loss_only': True, 'cl_rate': 0.15, 'regularization_term_rate': 0.0, 'cl_type': 'nt_xent', 'temperature': 0.1, 'mapping_to_small_space': 512, 'add_contrastive_predictor': None, 'add_projection': False, 'projection_norm_type': None, 'projection_hidden_dim': 600, 'projection_use_batch_norm': True, 'contrastive_loss_stop_grad': None, 'da_final_1': 'dropout', 'da_final_2': 'shuffle', 'cutoff_rate_final_1': 0.1, 'cutoff_rate_final_2': None, 'chinese_dataset': 'none', 'patience': 10}
+2022-11-15 23:19:54 - SentenceTransformer.py - INFO - Use pytorch device: cuda
+2022-11-15 23:19:54 - data_utils.py - INFO - Loading STSBenchmark dataset
+2022-11-15 23:19:54 - data_utils.py - INFO - Loaded examples from STSBenchmark(translate) dataset, total 11498 examples
+2022-11-15 23:19:54 - data_utils.py - INFO - Loaded data from datasets ['translate'], total number of samples 11498
+2022-11-15 23:19:54 - AdvCLSoftmaxLoss.py - INFO - Softmax loss: #Vectors concatenated: 3
+2022-11-15 23:19:54 - main.py - INFO - Read STSbenchmark dev dataset
+2022-11-15 23:19:54 - main.py - INFO - Warmup-steps: 360
+Selected optimization level O1:  Insert automatic casts around Pytorch functions and Tensor methods.
+
+Defaults for this optimization level are:
+enabled                : True
+opt_level              : O1
+cast_model_type        : None
+patch_torch_functions  : True
+keep_batchnorm_fp32    : None
+master_weights         : None
+loss_scale             : dynamic
+Processing user overrides (additional kwargs that are not None)...
+After processing overrides, optimization options are:
+enabled                : True
+opt_level              : O1
+cast_model_type        : None
+patch_torch_functions  : True
+keep_batchnorm_fp32    : None
+master_weights         : None
+loss_scale             : dynamic
+Warning:  multi_tensor_applier fused unscale kernel is unavailable, possibly because apex was installed without --cuda_ext --cpp_ext. Using Python fallback.  Original ImportError was: ModuleNotFoundError("No module named 'amp_C'")
+2022-11-15 23:21:39 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 0:
+2022-11-15 23:21:41 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6600	Spearman: 0.6666
+2022-11-15 23:21:41 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6737	Spearman: 0.6795
+2022-11-15 23:21:41 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6709	Spearman: 0.6769
+2022-11-15 23:21:41 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4848	Spearman: 0.4727
+2022-11-15 23:21:41 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:23:20 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 1:
+2022-11-15 23:23:23 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7571	Spearman: 0.7634
+2022-11-15 23:23:23 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7652	Spearman: 0.7692
+2022-11-15 23:23:23 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7636	Spearman: 0.7678
+2022-11-15 23:23:23 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5979	Spearman: 0.5979
+2022-11-15 23:23:23 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:24:59 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 2:
+2022-11-15 23:25:02 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7980	Spearman: 0.8031
+2022-11-15 23:25:02 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8056	Spearman: 0.8064
+2022-11-15 23:25:02 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8050	Spearman: 0.8057
+2022-11-15 23:25:02 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6442	Spearman: 0.6418
+2022-11-15 23:25:02 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:26:39 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 3:
+2022-11-15 23:26:41 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8094	Spearman: 0.8164
+2022-11-15 23:26:41 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8159	Spearman: 0.8152
+2022-11-15 23:26:41 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8156	Spearman: 0.8150
+2022-11-15 23:26:41 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6775	Spearman: 0.6722
+2022-11-15 23:26:41 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:28:21 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 4:
+2022-11-15 23:28:23 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8137	Spearman: 0.8212
+2022-11-15 23:28:23 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8197	Spearman: 0.8186
+2022-11-15 23:28:23 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8196	Spearman: 0.8186
+2022-11-15 23:28:23 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6975	Spearman: 0.6913
+2022-11-15 23:28:23 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:30:00 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 5:
+2022-11-15 23:30:02 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8147	Spearman: 0.8233
+2022-11-15 23:30:02 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8211	Spearman: 0.8195
+2022-11-15 23:30:02 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8210	Spearman: 0.8195
+2022-11-15 23:30:02 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7076	Spearman: 0.7011
+2022-11-15 23:30:02 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:31:39 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 6:
+2022-11-15 23:31:41 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8157	Spearman: 0.8251
+2022-11-15 23:31:41 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8226	Spearman: 0.8210
+2022-11-15 23:31:41 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8225	Spearman: 0.8209
+2022-11-15 23:31:41 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7141	Spearman: 0.7071
+2022-11-15 23:31:41 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:33:19 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 7:
+2022-11-15 23:33:21 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8153	Spearman: 0.8255
+2022-11-15 23:33:21 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8225	Spearman: 0.8204
+2022-11-15 23:33:21 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8225	Spearman: 0.8204
+2022-11-15 23:33:21 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7165	Spearman: 0.7094
+2022-11-15 23:33:21 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:35:00 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 8:
+2022-11-15 23:35:02 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8153	Spearman: 0.8267
+2022-11-15 23:35:02 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8229	Spearman: 0.8209
+2022-11-15 23:35:02 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8229	Spearman: 0.8208
+2022-11-15 23:35:02 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7196	Spearman: 0.7119
+2022-11-15 23:35:02 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:36:40 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 9:
+2022-11-15 23:36:43 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8153	Spearman: 0.8274
+2022-11-15 23:36:43 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8232	Spearman: 0.8212
+2022-11-15 23:36:43 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8231	Spearman: 0.8212
+2022-11-15 23:36:43 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7202	Spearman: 0.7120
+2022-11-15 23:36:43 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:38:20 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 10:
+2022-11-15 23:38:22 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8156	Spearman: 0.8284
+2022-11-15 23:38:22 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8237	Spearman: 0.8219
+2022-11-15 23:38:22 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8236	Spearman: 0.8218
+2022-11-15 23:38:22 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7221	Spearman: 0.7138
+2022-11-15 23:38:22 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:39:58 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 11:
+2022-11-15 23:40:00 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8160	Spearman: 0.8296
+2022-11-15 23:40:00 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8240	Spearman: 0.8225
+2022-11-15 23:40:00 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8240	Spearman: 0.8226
+2022-11-15 23:40:00 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7235	Spearman: 0.7151
+2022-11-15 23:40:00 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:41:36 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 12:
+2022-11-15 23:41:38 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8164	Spearman: 0.8311
+2022-11-15 23:41:38 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8246	Spearman: 0.8233
+2022-11-15 23:41:38 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8245	Spearman: 0.8233
+2022-11-15 23:41:38 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7246	Spearman: 0.7159
+2022-11-15 23:41:38 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:43:15 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 13:
+2022-11-15 23:43:17 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8171	Spearman: 0.8325
+2022-11-15 23:43:17 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8253	Spearman: 0.8245
+2022-11-15 23:43:17 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8253	Spearman: 0.8245
+2022-11-15 23:43:17 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7262	Spearman: 0.7173
+2022-11-15 23:43:17 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:44:53 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 14:
+2022-11-15 23:44:55 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8179	Spearman: 0.8338
+2022-11-15 23:44:55 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8262	Spearman: 0.8255
+2022-11-15 23:44:55 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8261	Spearman: 0.8256
+2022-11-15 23:44:55 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7277	Spearman: 0.7186
+2022-11-15 23:44:55 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:46:32 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 15:
+2022-11-15 23:46:34 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8188	Spearman: 0.8352
+2022-11-15 23:46:34 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8269	Spearman: 0.8265
+2022-11-15 23:46:34 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8268	Spearman: 0.8265
+2022-11-15 23:46:34 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7295	Spearman: 0.7203
+2022-11-15 23:46:34 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:48:12 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 16:
+2022-11-15 23:48:14 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8193	Spearman: 0.8365
+2022-11-15 23:48:14 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8273	Spearman: 0.8273
+2022-11-15 23:48:14 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8272	Spearman: 0.8272
+2022-11-15 23:48:14 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7309	Spearman: 0.7216
+2022-11-15 23:48:14 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:49:51 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 17:
+2022-11-15 23:49:53 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8199	Spearman: 0.8375
+2022-11-15 23:49:53 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8276	Spearman: 0.8280
+2022-11-15 23:49:53 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8275	Spearman: 0.8279
+2022-11-15 23:49:53 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7320	Spearman: 0.7226
+2022-11-15 23:49:53 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:51:34 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 18:
+2022-11-15 23:51:36 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8206	Spearman: 0.8385
+2022-11-15 23:51:36 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8279	Spearman: 0.8285
+2022-11-15 23:51:36 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8278	Spearman: 0.8284
+2022-11-15 23:51:36 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7328	Spearman: 0.7234
+2022-11-15 23:51:36 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:53:14 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 19:
+2022-11-15 23:53:16 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8209	Spearman: 0.8389
+2022-11-15 23:53:16 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8278	Spearman: 0.8287
+2022-11-15 23:53:16 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8278	Spearman: 0.8285
+2022-11-15 23:53:16 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7337	Spearman: 0.7243
+2022-11-15 23:53:16 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:54:54 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 20:
+2022-11-15 23:54:56 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8210	Spearman: 0.8392
+2022-11-15 23:54:56 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8277	Spearman: 0.8288
+2022-11-15 23:54:56 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8277	Spearman: 0.8286
+2022-11-15 23:54:56 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7344	Spearman: 0.7252
+2022-11-15 23:54:56 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:56:32 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 21:
+2022-11-15 23:56:34 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8210	Spearman: 0.8395
+2022-11-15 23:56:34 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8276	Spearman: 0.8287
+2022-11-15 23:56:34 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8276	Spearman: 0.8286
+2022-11-15 23:56:34 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7344	Spearman: 0.7253
+2022-11-15 23:56:34 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:58:15 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 22:
+2022-11-15 23:58:18 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8213	Spearman: 0.8400
+2022-11-15 23:58:18 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8276	Spearman: 0.8289
+2022-11-15 23:58:18 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8276	Spearman: 0.8287
+2022-11-15 23:58:18 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7349	Spearman: 0.7259
+2022-11-15 23:58:18 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-15 23:59:54 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 23:
+2022-11-15 23:59:56 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8213	Spearman: 0.8400
+2022-11-15 23:59:56 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8275	Spearman: 0.8287
+2022-11-15 23:59:56 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8275	Spearman: 0.8285
+2022-11-15 23:59:56 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7353	Spearman: 0.7261
+2022-11-15 23:59:56 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-16 00:01:32 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 24:
+2022-11-16 00:01:34 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8214	Spearman: 0.8402
+2022-11-16 00:01:34 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8274	Spearman: 0.8287
+2022-11-16 00:01:34 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8274	Spearman: 0.8284
+2022-11-16 00:01:34 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7356	Spearman: 0.7265
+2022-11-16 00:01:34 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-16 00:03:12 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 25:
+2022-11-16 00:03:14 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8215	Spearman: 0.8403
+2022-11-16 00:03:14 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8274	Spearman: 0.8287
+2022-11-16 00:03:14 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8274	Spearman: 0.8285
+2022-11-16 00:03:14 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7359	Spearman: 0.7269
+2022-11-16 00:03:14 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-16 00:04:52 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 26:
+2022-11-16 00:04:54 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8215	Spearman: 0.8404
+2022-11-16 00:04:54 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8273	Spearman: 0.8286
+2022-11-16 00:04:54 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8273	Spearman: 0.8284
+2022-11-16 00:04:54 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7361	Spearman: 0.7270
+2022-11-16 00:04:54 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-16 00:06:30 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 27:
+2022-11-16 00:06:32 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8215	Spearman: 0.8405
+2022-11-16 00:06:32 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8273	Spearman: 0.8286
+2022-11-16 00:06:32 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8273	Spearman: 0.8284
+2022-11-16 00:06:32 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7364	Spearman: 0.7274
+2022-11-16 00:06:32 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-16 00:08:09 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 28:
+2022-11-16 00:08:11 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8215	Spearman: 0.8405
+2022-11-16 00:08:11 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8273	Spearman: 0.8286
+2022-11-16 00:08:11 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8272	Spearman: 0.8284
+2022-11-16 00:08:11 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7364	Spearman: 0.7274
+2022-11-16 00:08:11 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-16 00:09:48 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-dev dataset after epoch 29:
+2022-11-16 00:09:50 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8215	Spearman: 0.8405
+2022-11-16 00:09:50 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8272	Spearman: 0.8285
+2022-11-16 00:09:50 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8272	Spearman: 0.8283
+2022-11-16 00:09:50 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7364	Spearman: 0.7274
+2022-11-16 00:09:50 - SentenceTransformer.py - INFO - Save model to ./output/unsup-consert-base
+2022-11-16 00:09:51 - SentenceTransformer.py - INFO - Load pretrained SentenceTransformer: ./output/unsup-consert-base
+2022-11-16 00:09:51 - SentenceTransformer.py - INFO - Load SentenceTransformer from folder: ./output/unsup-consert-base
+2022-11-16 00:09:54 - SentenceTransformer.py - INFO - Use pytorch device: cuda
+2022-11-16 00:09:54 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-test dataset:
+2022-11-16 00:09:56 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7790	Spearman: 0.7904
+2022-11-16 00:09:56 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7919	Spearman: 0.7820
+2022-11-16 00:09:56 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7922	Spearman: 0.7823
+2022-11-16 00:09:56 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5702	Spearman: 0.5381
+2022-11-16 00:09:56 - SentenceTransformer.py - INFO - Load pretrained SentenceTransformer: ./output/unsup-consert-base
+2022-11-16 00:09:56 - SentenceTransformer.py - INFO - Load SentenceTransformer from folder: ./output/unsup-consert-base
+2022-11-16 00:09:58 - SentenceTransformer.py - INFO - Use pytorch device: cuda
+2022-11-16 00:09:58 - eval.py - INFO - Model successfully loaded
+2022-11-16 00:09:58 - eval.py - INFO - Evaluation on STS12 dataset
+2022-11-16 00:09:58 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-MSRpar dataset:
+2022-11-16 00:10:02 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.5432	Spearman: 0.5816
+2022-11-16 00:10:02 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6042	Spearman: 0.6045
+2022-11-16 00:10:02 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6037	Spearman: 0.6031
+2022-11-16 00:10:02 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.1391	Spearman: 0.1557
+2022-11-16 00:10:02 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-MSRvid dataset:
+2022-11-16 00:10:06 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8954	Spearman: 0.9075
+2022-11-16 00:10:06 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.9138	Spearman: 0.9079
+2022-11-16 00:10:06 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.9144	Spearman: 0.9086
+2022-11-16 00:10:06 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.8556	Spearman: 0.8432
+2022-11-16 00:10:06 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-SMTeuroparl dataset:
+2022-11-16 00:10:08 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.4928	Spearman: 0.6133
+2022-11-16 00:10:08 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.5141	Spearman: 0.5995
+2022-11-16 00:10:08 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.5162	Spearman: 0.5993
+2022-11-16 00:10:08 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4241	Spearman: 0.4932
+2022-11-16 00:10:08 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-surprise.OnWN dataset:
+2022-11-16 00:10:12 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7692	Spearman: 0.7304
+2022-11-16 00:10:12 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7436	Spearman: 0.7340
+2022-11-16 00:10:12 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7455	Spearman: 0.7358
+2022-11-16 00:10:12 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5427	Spearman: 0.4999
+2022-11-16 00:10:12 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-surprise.SMTnews dataset:
+2022-11-16 00:10:14 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7151	Spearman: 0.6070
+2022-11-16 00:10:14 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6813	Spearman: 0.6021
+2022-11-16 00:10:14 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6789	Spearman: 0.6029
+2022-11-16 00:10:14 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.3979	Spearman: 0.3279
+2022-11-16 00:10:14 - eval.py - INFO - Loaded examples from STS12 dataset, total 3108 examples
+2022-11-16 00:10:14 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12 dataset:
+2022-11-16 00:10:29 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8133	Spearman: 0.7393
+2022-11-16 00:10:29 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8296	Spearman: 0.7633
+2022-11-16 00:10:29 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8297	Spearman: 0.7633
+2022-11-16 00:10:29 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4541	Spearman: 0.3082
+2022-11-16 00:10:29 - eval.py - INFO - Results on STS12: 0.739310
+2022-11-16 00:10:29 - eval.py - INFO - Evaluation on STS13 dataset
+2022-11-16 00:10:29 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-13-headlines dataset:
+2022-11-16 00:10:33 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8011	Spearman: 0.8170
+2022-11-16 00:10:33 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8253	Spearman: 0.8221
+2022-11-16 00:10:33 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8257	Spearman: 0.8229
+2022-11-16 00:10:33 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6451	Spearman: 0.6044
+2022-11-16 00:10:33 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-13-OnWN dataset:
+2022-11-16 00:10:35 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8336	Spearman: 0.8309
+2022-11-16 00:10:35 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8100	Spearman: 0.8175
+2022-11-16 00:10:35 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8098	Spearman: 0.8171
+2022-11-16 00:10:35 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7911	Spearman: 0.7884
+2022-11-16 00:10:35 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-13-FNWN dataset:
+2022-11-16 00:10:36 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.5520	Spearman: 0.5544
+2022-11-16 00:10:36 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.5316	Spearman: 0.5392
+2022-11-16 00:10:36 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.5286	Spearman: 0.5380
+2022-11-16 00:10:36 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4554	Spearman: 0.5246
+2022-11-16 00:10:36 - eval.py - INFO - Loaded examples from STS13 dataset, total 1500 examples
+2022-11-16 00:10:36 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-13 dataset:
+2022-11-16 00:10:44 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8081	Spearman: 0.8255
+2022-11-16 00:10:44 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8054	Spearman: 0.8163
+2022-11-16 00:10:44 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8051	Spearman: 0.8161
+2022-11-16 00:10:44 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6429	Spearman: 0.6525
+2022-11-16 00:10:44 - eval.py - INFO - Results on STS13: 0.825523
+2022-11-16 00:10:44 - eval.py - INFO - Evaluation on STS14 dataset
+2022-11-16 00:10:44 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-images dataset:
+2022-11-16 00:10:47 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8430	Spearman: 0.8163
+2022-11-16 00:10:47 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8454	Spearman: 0.8184
+2022-11-16 00:10:47 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8458	Spearman: 0.8185
+2022-11-16 00:10:47 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7542	Spearman: 0.6978
+2022-11-16 00:10:47 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-OnWN dataset:
+2022-11-16 00:10:51 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8681	Spearman: 0.8623
+2022-11-16 00:10:51 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8465	Spearman: 0.8547
+2022-11-16 00:10:51 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8455	Spearman: 0.8538
+2022-11-16 00:10:51 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7944	Spearman: 0.8014
+2022-11-16 00:10:51 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-tweet-news dataset:
+2022-11-16 00:10:54 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7551	Spearman: 0.6728
+2022-11-16 00:10:55 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7291	Spearman: 0.6732
+2022-11-16 00:10:55 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7292	Spearman: 0.6742
+2022-11-16 00:10:55 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6177	Spearman: 0.5300
+2022-11-16 00:10:55 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-deft-news dataset:
+2022-11-16 00:10:56 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8097	Spearman: 0.7734
+2022-11-16 00:10:56 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8185	Spearman: 0.7744
+2022-11-16 00:10:56 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8185	Spearman: 0.7741
+2022-11-16 00:10:56 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6748	Spearman: 0.6119
+2022-11-16 00:10:56 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-deft-forum dataset:
+2022-11-16 00:10:58 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.5454	Spearman: 0.5373
+2022-11-16 00:10:58 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.5409	Spearman: 0.5352
+2022-11-16 00:10:58 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.5390	Spearman: 0.5335
+2022-11-16 00:10:58 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.3632	Spearman: 0.3397
+2022-11-16 00:10:58 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-headlines dataset:
+2022-11-16 00:11:02 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7882	Spearman: 0.7840
+2022-11-16 00:11:02 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8064	Spearman: 0.7901
+2022-11-16 00:11:02 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8075	Spearman: 0.7915
+2022-11-16 00:11:02 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6248	Spearman: 0.5609
+2022-11-16 00:11:02 - eval.py - INFO - Loaded examples from STS14 dataset, total 3750 examples
+2022-11-16 00:11:02 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14 dataset:
+2022-11-16 00:11:20 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7848	Spearman: 0.7444
+2022-11-16 00:11:20 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7724	Spearman: 0.7458
+2022-11-16 00:11:20 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7720	Spearman: 0.7455
+2022-11-16 00:11:20 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5918	Spearman: 0.5251
+2022-11-16 00:11:20 - eval.py - INFO - Results on STS14: 0.744381
+2022-11-16 00:11:20 - eval.py - INFO - Evaluation on STS15 dataset
+2022-11-16 00:11:20 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-answers-forums dataset:
+2022-11-16 00:11:22 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6801	Spearman: 0.6916
+2022-11-16 00:11:22 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6353	Spearman: 0.6386
+2022-11-16 00:11:22 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6361	Spearman: 0.6393
+2022-11-16 00:11:22 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6655	Spearman: 0.6831
+2022-11-16 00:11:22 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-answers-students dataset:
+2022-11-16 00:11:26 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6851	Spearman: 0.6814
+2022-11-16 00:11:26 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6880	Spearman: 0.6797
+2022-11-16 00:11:26 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6846	Spearman: 0.6755
+2022-11-16 00:11:26 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6199	Spearman: 0.6153
+2022-11-16 00:11:26 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-belief dataset:
+2022-11-16 00:11:28 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7904	Spearman: 0.8305
+2022-11-16 00:11:28 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7811	Spearman: 0.8041
+2022-11-16 00:11:28 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7819	Spearman: 0.8060
+2022-11-16 00:11:28 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6977	Spearman: 0.7608
+2022-11-16 00:11:28 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-headlines dataset:
+2022-11-16 00:11:31 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8227	Spearman: 0.8411
+2022-11-16 00:11:31 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8379	Spearman: 0.8397
+2022-11-16 00:11:31 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8382	Spearman: 0.8402
+2022-11-16 00:11:31 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7064	Spearman: 0.6889
+2022-11-16 00:11:31 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-images dataset:
+2022-11-16 00:11:35 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8783	Spearman: 0.9027
+2022-11-16 00:11:35 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8957	Spearman: 0.9041
+2022-11-16 00:11:35 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8964	Spearman: 0.9046
+2022-11-16 00:11:35 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.8128	Spearman: 0.8150
+2022-11-16 00:11:35 - eval.py - INFO - Loaded examples from STS15 dataset, total 3000 examples
+2022-11-16 00:11:35 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15 dataset:
+2022-11-16 00:11:50 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8025	Spearman: 0.8169
+2022-11-16 00:11:50 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8039	Spearman: 0.8062
+2022-11-16 00:11:50 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8030	Spearman: 0.8050
+2022-11-16 00:11:50 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6796	Spearman: 0.6819
+2022-11-16 00:11:50 - eval.py - INFO - Results on STS15: 0.816922
+2022-11-16 00:11:50 - eval.py - INFO - Evaluation on STS16 dataset
+2022-11-16 00:11:50 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-answer-answer dataset:
+2022-11-16 00:11:51 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6607	Spearman: 0.6694
+2022-11-16 00:11:51 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6964	Spearman: 0.6868
+2022-11-16 00:11:51 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6961	Spearman: 0.6865
+2022-11-16 00:11:51 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.3499	Spearman: 0.4035
+2022-11-16 00:11:51 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-headlines dataset:
+2022-11-16 00:11:53 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7708	Spearman: 0.8341
+2022-11-16 00:11:53 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8226	Spearman: 0.8353
+2022-11-16 00:11:53 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8242	Spearman: 0.8365
+2022-11-16 00:11:53 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6291	Spearman: 0.6323
+2022-11-16 00:11:53 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-plagiarism dataset:
+2022-11-16 00:11:54 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7973	Spearman: 0.8320
+2022-11-16 00:11:54 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8245	Spearman: 0.8353
+2022-11-16 00:11:54 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8275	Spearman: 0.8382
+2022-11-16 00:11:54 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5733	Spearman: 0.5615
+2022-11-16 00:11:54 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-postediting dataset:
+2022-11-16 00:11:55 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7956	Spearman: 0.8396
+2022-11-16 00:11:55 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8261	Spearman: 0.8306
+2022-11-16 00:11:55 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8264	Spearman: 0.8308
+2022-11-16 00:11:55 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6960	Spearman: 0.6827
+2022-11-16 00:11:55 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-question-question dataset:
+2022-11-16 00:11:57 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6914	Spearman: 0.7210
+2022-11-16 00:11:57 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7132	Spearman: 0.7168
+2022-11-16 00:11:57 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7111	Spearman: 0.7146
+2022-11-16 00:11:57 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5589	Spearman: 0.5647
+2022-11-16 00:11:57 - eval.py - INFO - Loaded examples from STS16 dataset, total 1186 examples
+2022-11-16 00:11:57 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16 dataset:
+2022-11-16 00:12:04 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7289	Spearman: 0.7677
+2022-11-16 00:12:04 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7556	Spearman: 0.7661
+2022-11-16 00:12:04 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7561	Spearman: 0.7666
+2022-11-16 00:12:04 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4888	Spearman: 0.4994
+2022-11-16 00:12:04 - eval.py - INFO - Results on STS16: 0.767687
+2022-11-16 00:12:04 - eval.py - INFO - Evaluation on STSBenchmark dataset
+2022-11-16 00:12:04 - eval.py - INFO - Loaded examples from STSBenchmark dataset, total 1379 examples
+2022-11-16 00:12:04 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-benchmark dataset:
+2022-11-16 00:12:12 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7790	Spearman: 0.7904
+2022-11-16 00:12:12 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7919	Spearman: 0.7820
+2022-11-16 00:12:12 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7922	Spearman: 0.7823
+2022-11-16 00:12:12 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5702	Spearman: 0.5382
+2022-11-16 00:12:12 - eval.py - INFO - Results on STSBenchmark: 0.790361
+2022-11-16 00:12:12 - eval.py - INFO - Evaluation on SICK (relatedness) dataset
+2022-11-16 00:12:12 - eval.py - INFO - Loaded examples from SICK dataset, total 4927 examples
+2022-11-16 00:12:12 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sick-r dataset:
+2022-11-16 00:12:35 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7897	Spearman: 0.6854
+2022-11-16 00:12:35 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7585	Spearman: 0.6850
+2022-11-16 00:12:35 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7585	Spearman: 0.6851
+2022-11-16 00:12:35 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7271	Spearman: 0.6148
+2022-11-16 00:12:35 - eval.py - INFO - Results on SICK (relatedness): 0.685388
+2022-11-16 00:12:35 - eval.py - INFO - Average score in unsupervised experiments: 0.767082
+2022-11-16 00:12:35 - SentenceTransformer.py - INFO - Load pretrained SentenceTransformer: ./output/unsup-consert-base
+2022-11-16 00:12:35 - SentenceTransformer.py - INFO - Load SentenceTransformer from folder: ./output/unsup-consert-base
+2022-11-16 00:12:37 - SentenceTransformer.py - INFO - Use pytorch device: cuda
+2022-11-16 00:12:37 - eval.py - INFO - Model successfully loaded
+2022-11-16 00:12:37 - eval.py - INFO - Evaluation on STS12 dataset
+2022-11-16 00:12:37 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-MSRpar dataset:
+2022-11-16 00:12:41 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.5023	Spearman: 0.5530
+2022-11-16 00:12:41 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.5619	Spearman: 0.5701
+2022-11-16 00:12:41 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.5600	Spearman: 0.5677
+2022-11-16 00:12:41 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.1638	Spearman: 0.1836
+2022-11-16 00:12:41 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-MSRvid dataset:
+2022-11-16 00:12:45 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8879	Spearman: 0.9053
+2022-11-16 00:12:45 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.9101	Spearman: 0.9047
+2022-11-16 00:12:45 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.9108	Spearman: 0.9050
+2022-11-16 00:12:45 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.8391	Spearman: 0.8295
+2022-11-16 00:12:45 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-SMTeuroparl dataset:
+2022-11-16 00:12:48 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.5192	Spearman: 0.6329
+2022-11-16 00:12:48 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.5332	Spearman: 0.6126
+2022-11-16 00:12:48 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.5373	Spearman: 0.6145
+2022-11-16 00:12:48 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.0920	Spearman: 0.2154
+2022-11-16 00:12:48 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-surprise.OnWN dataset:
+2022-11-16 00:12:52 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7705	Spearman: 0.7319
+2022-11-16 00:12:52 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7498	Spearman: 0.7376
+2022-11-16 00:12:52 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7512	Spearman: 0.7399
+2022-11-16 00:12:52 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4902	Spearman: 0.4579
+2022-11-16 00:12:52 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12-surprise.SMTnews dataset:
+2022-11-16 00:12:54 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7131	Spearman: 0.6035
+2022-11-16 00:12:54 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6727	Spearman: 0.6007
+2022-11-16 00:12:54 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6714	Spearman: 0.6051
+2022-11-16 00:12:54 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.3465	Spearman: 0.3049
+2022-11-16 00:12:54 - eval.py - INFO - Loaded examples from STS12 dataset, total 3108 examples
+2022-11-16 00:12:54 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-12 dataset:
+2022-11-16 00:13:12 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8015	Spearman: 0.7214
+2022-11-16 00:13:12 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8096	Spearman: 0.7407
+2022-11-16 00:13:12 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8087	Spearman: 0.7403
+2022-11-16 00:13:12 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4711	Spearman: 0.3246
+2022-11-16 00:13:12 - eval.py - INFO - Results on STS12: 0.721423
+2022-11-16 00:13:12 - eval.py - INFO - Evaluation on STS13 dataset
+2022-11-16 00:13:12 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-13-headlines dataset:
+2022-11-16 00:13:16 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7945	Spearman: 0.8181
+2022-11-16 00:13:16 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8225	Spearman: 0.8193
+2022-11-16 00:13:16 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8223	Spearman: 0.8191
+2022-11-16 00:13:16 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6823	Spearman: 0.6566
+2022-11-16 00:13:16 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-13-OnWN dataset:
+2022-11-16 00:13:19 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8111	Spearman: 0.8268
+2022-11-16 00:13:19 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8043	Spearman: 0.8155
+2022-11-16 00:13:19 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8039	Spearman: 0.8149
+2022-11-16 00:13:19 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7886	Spearman: 0.7799
+2022-11-16 00:13:19 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-13-FNWN dataset:
+2022-11-16 00:13:21 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.5322	Spearman: 0.5342
+2022-11-16 00:13:21 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.5292	Spearman: 0.5373
+2022-11-16 00:13:21 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.5288	Spearman: 0.5334
+2022-11-16 00:13:21 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4155	Spearman: 0.4242
+2022-11-16 00:13:21 - eval.py - INFO - Loaded examples from STS13 dataset, total 1500 examples
+2022-11-16 00:13:21 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-13 dataset:
+2022-11-16 00:13:29 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7957	Spearman: 0.8240
+2022-11-16 00:13:29 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8046	Spearman: 0.8136
+2022-11-16 00:13:29 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8041	Spearman: 0.8133
+2022-11-16 00:13:29 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6896	Spearman: 0.6898
+2022-11-16 00:13:29 - eval.py - INFO - Results on STS13: 0.824029
+2022-11-16 00:13:29 - eval.py - INFO - Evaluation on STS14 dataset
+2022-11-16 00:13:29 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-images dataset:
+2022-11-16 00:13:33 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8393	Spearman: 0.8215
+2022-11-16 00:13:33 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8514	Spearman: 0.8235
+2022-11-16 00:13:33 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8515	Spearman: 0.8233
+2022-11-16 00:13:33 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7090	Spearman: 0.6641
+2022-11-16 00:13:33 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-OnWN dataset:
+2022-11-16 00:13:38 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8549	Spearman: 0.8630
+2022-11-16 00:13:38 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8445	Spearman: 0.8534
+2022-11-16 00:13:38 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8434	Spearman: 0.8527
+2022-11-16 00:13:38 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.8054	Spearman: 0.7938
+2022-11-16 00:13:38 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-tweet-news dataset:
+2022-11-16 00:13:42 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7458	Spearman: 0.6750
+2022-11-16 00:13:42 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7396	Spearman: 0.6764
+2022-11-16 00:13:42 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7385	Spearman: 0.6794
+2022-11-16 00:13:42 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5653	Spearman: 0.4524
+2022-11-16 00:13:42 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-deft-news dataset:
+2022-11-16 00:13:44 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8074	Spearman: 0.7820
+2022-11-16 00:13:44 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8209	Spearman: 0.7810
+2022-11-16 00:13:44 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8206	Spearman: 0.7798
+2022-11-16 00:13:44 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6924	Spearman: 0.6153
+2022-11-16 00:13:44 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-deft-forum dataset:
+2022-11-16 00:13:46 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.5375	Spearman: 0.5342
+2022-11-16 00:13:46 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.5245	Spearman: 0.5218
+2022-11-16 00:13:46 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.5223	Spearman: 0.5193
+2022-11-16 00:13:46 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.3204	Spearman: 0.2974
+2022-11-16 00:13:46 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14-headlines dataset:
+2022-11-16 00:13:50 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7770	Spearman: 0.7771
+2022-11-16 00:13:50 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7954	Spearman: 0.7742
+2022-11-16 00:13:50 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7955	Spearman: 0.7741
+2022-11-16 00:13:50 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6548	Spearman: 0.6225
+2022-11-16 00:13:50 - eval.py - INFO - Loaded examples from STS14 dataset, total 3750 examples
+2022-11-16 00:13:50 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-14 dataset:
+2022-11-16 00:14:08 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7759	Spearman: 0.7412
+2022-11-16 00:14:08 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7697	Spearman: 0.7346
+2022-11-16 00:14:08 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7679	Spearman: 0.7331
+2022-11-16 00:14:08 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6093	Spearman: 0.5547
+2022-11-16 00:14:08 - eval.py - INFO - Results on STS14: 0.741190
+2022-11-16 00:14:08 - eval.py - INFO - Evaluation on STS15 dataset
+2022-11-16 00:14:08 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-answers-forums dataset:
+2022-11-16 00:14:10 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6543	Spearman: 0.6704
+2022-11-16 00:14:10 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6400	Spearman: 0.6409
+2022-11-16 00:14:10 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6397	Spearman: 0.6402
+2022-11-16 00:14:10 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6107	Spearman: 0.6223
+2022-11-16 00:14:10 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-answers-students dataset:
+2022-11-16 00:14:14 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6900	Spearman: 0.6895
+2022-11-16 00:14:14 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6978	Spearman: 0.6919
+2022-11-16 00:14:14 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6955	Spearman: 0.6885
+2022-11-16 00:14:14 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5842	Spearman: 0.5648
+2022-11-16 00:14:14 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-belief dataset:
+2022-11-16 00:14:16 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7711	Spearman: 0.8168
+2022-11-16 00:14:16 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7920	Spearman: 0.8166
+2022-11-16 00:14:16 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7915	Spearman: 0.8159
+2022-11-16 00:14:16 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.5049	Spearman: 0.5345
+2022-11-16 00:14:16 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-headlines dataset:
+2022-11-16 00:14:19 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8119	Spearman: 0.8370
+2022-11-16 00:14:19 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8366	Spearman: 0.8386
+2022-11-16 00:14:19 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8360	Spearman: 0.8385
+2022-11-16 00:14:19 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6992	Spearman: 0.6883
+2022-11-16 00:14:19 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15-images dataset:
+2022-11-16 00:14:23 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.8735	Spearman: 0.9030
+2022-11-16 00:14:23 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8968	Spearman: 0.9047
+2022-11-16 00:14:23 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8972	Spearman: 0.9049
+2022-11-16 00:14:23 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7085	Spearman: 0.7072
+2022-11-16 00:14:23 - eval.py - INFO - Loaded examples from STS15 dataset, total 3000 examples
+2022-11-16 00:14:23 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-15 dataset:
+2022-11-16 00:14:38 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7905	Spearman: 0.8130
+2022-11-16 00:14:38 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8096	Spearman: 0.8129
+2022-11-16 00:14:38 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8086	Spearman: 0.8116
+2022-11-16 00:14:38 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6232	Spearman: 0.6308
+2022-11-16 00:14:38 - eval.py - INFO - Results on STS15: 0.813016
+2022-11-16 00:14:38 - eval.py - INFO - Evaluation on STS16 dataset
+2022-11-16 00:14:38 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-answer-answer dataset:
+2022-11-16 00:14:39 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6498	Spearman: 0.6604
+2022-11-16 00:14:39 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.6993	Spearman: 0.6930
+2022-11-16 00:14:39 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.6997	Spearman: 0.6943
+2022-11-16 00:14:39 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.0222	Spearman: 0.0267
+2022-11-16 00:14:39 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-headlines dataset:
+2022-11-16 00:14:40 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7657	Spearman: 0.8409
+2022-11-16 00:14:40 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8231	Spearman: 0.8431
+2022-11-16 00:14:40 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8243	Spearman: 0.8438
+2022-11-16 00:14:40 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6360	Spearman: 0.6539
+2022-11-16 00:14:40 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-plagiarism dataset:
+2022-11-16 00:14:41 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7998	Spearman: 0.8311
+2022-11-16 00:14:41 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8292	Spearman: 0.8407
+2022-11-16 00:14:41 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8283	Spearman: 0.8385
+2022-11-16 00:14:41 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4048	Spearman: 0.3967
+2022-11-16 00:14:41 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-postediting dataset:
+2022-11-16 00:14:43 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7980	Spearman: 0.8446
+2022-11-16 00:14:43 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.8340	Spearman: 0.8383
+2022-11-16 00:14:43 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.8339	Spearman: 0.8377
+2022-11-16 00:14:43 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.7131	Spearman: 0.7178
+2022-11-16 00:14:43 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16-question-question dataset:
+2022-11-16 00:14:44 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.6736	Spearman: 0.7119
+2022-11-16 00:14:44 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7027	Spearman: 0.7028
+2022-11-16 00:14:44 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7015	Spearman: 0.7003
+2022-11-16 00:14:44 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4720	Spearman: 0.4936
+2022-11-16 00:14:44 - eval.py - INFO - Loaded examples from STS16 dataset, total 1186 examples
+2022-11-16 00:14:44 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-16 dataset:
+2022-11-16 00:14:50 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7123	Spearman: 0.7608
+2022-11-16 00:14:50 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7643	Spearman: 0.7739
+2022-11-16 00:14:50 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7637	Spearman: 0.7731
+2022-11-16 00:14:50 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.3731	Spearman: 0.3756
+2022-11-16 00:14:50 - eval.py - INFO - Results on STS16: 0.760824
+2022-11-16 00:14:50 - eval.py - INFO - Evaluation on STSBenchmark dataset
+2022-11-16 00:14:50 - eval.py - INFO - Loaded examples from STSBenchmark dataset, total 1379 examples
+2022-11-16 00:14:50 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sts-benchmark dataset:
+2022-11-16 00:14:56 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7669	Spearman: 0.7852
+2022-11-16 00:14:56 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7972	Spearman: 0.7880
+2022-11-16 00:14:56 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7973	Spearman: 0.7880
+2022-11-16 00:14:56 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.4982	Spearman: 0.4831
+2022-11-16 00:14:56 - eval.py - INFO - Results on STSBenchmark: 0.785184
+2022-11-16 00:14:56 - eval.py - INFO - Evaluation on SICK (relatedness) dataset
+2022-11-16 00:14:56 - eval.py - INFO - Loaded examples from SICK dataset, total 4927 examples
+2022-11-16 00:14:56 - EmbeddingSimilarityEvaluator.py - INFO - EmbeddingSimilarityEvaluator: Evaluating the model on sick-r dataset:
+2022-11-16 00:15:20 - EmbeddingSimilarityEvaluator.py - INFO - Cosine-Similarity :	Pearson: 0.7940	Spearman: 0.6951
+2022-11-16 00:15:20 - EmbeddingSimilarityEvaluator.py - INFO - Manhattan-Distance:	Pearson: 0.7662	Spearman: 0.6958
+2022-11-16 00:15:20 - EmbeddingSimilarityEvaluator.py - INFO - Euclidean-Distance:	Pearson: 0.7661	Spearman: 0.6960
+2022-11-16 00:15:20 - EmbeddingSimilarityEvaluator.py - INFO - Dot-Product-Similarity:	Pearson: 0.6668	Spearman: 0.5439
+2022-11-16 00:15:20 - eval.py - INFO - Results on SICK (relatedness): 0.695133
+2022-11-16 00:15:20 - eval.py - INFO - Average score in unsupervised experiments: 0.762971
+2022-11-16 00:15:20 - data_utils.py - INFO - Loading STSBenchmark dataset
+2022-11-16 00:15:20 - data_utils.py - INFO - Loaded examples from STSBenchmark dataset, total 1379 examples
+2022-11-16 00:15:20 - data_utils.py - INFO - Loaded data from datasets ['stsb'], total number of samples 1379
+2022-11-16 00:15:20 - SentenceTransformer.py - INFO - Load pretrained SentenceTransformer: ./output/unsup-consert-base
+2022-11-16 00:15:20 - SentenceTransformer.py - INFO - Load SentenceTransformer from folder: ./output/unsup-consert-base
+2022-11-16 00:15:22 - SentenceTransformer.py - INFO - Use pytorch device: cuda
+similarity mean: 0.8325688242912292
+similarity std: 0.1288701891899109
+similarity max: 0.997380793094635
+similarity min: 0.3430967330932617
+labels mean: 0.5215833187103271
+labels std: 0.30510348081588745
+labels max: 1.0
+labels min: 0.0
